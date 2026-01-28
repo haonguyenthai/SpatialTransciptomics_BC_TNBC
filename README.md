@@ -22,6 +22,47 @@ Triple-Negative Breast Cancer (TNBC) accounts for 10-15% of all breast cancers a
 
 This repository catalogs publicly available spatial transcriptomics datasets focused on or including TNBC samples, providing researchers with easy access to these valuable resources.
 
+
+- Expression/morphology pair annotations
+- Nuclei segmentation masks
+
+---
+
+## Data Access
+
+### Comprehensive Dataset Table
+
+| Dataset | Source | TNBC | Technology | Samples / Scale | Modalities | Key Contents | Size | Link |
+|---------|--------|------|------------|----------------|------------|--------------|------|------|
+| GSE210616 | GEO | ✅ Yes | 10x Visium | 43 sections, 22 patients | ST + H&E | Raw & processed matrices, spatial coords, H&E images, Loupe files | 35.1 GB | [GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE210616) |
+| Zenodo 14204217 | Zenodo | ✅ Yes | 10x Visium | Multiple TNBC samples | ST + H&E + IHC | Raw counts, clustering, deconvolution, clinical metadata, 18 annotation types | 58.0 GB | [Zenodo](https://zenodo.org/records/14204217) |
+| Zenodo 14247036 | Zenodo | ⚠️ Partial | 10x Visium | 9 tumors (4 TNBC) | ST + scRNA-seq | Seurat objects, deconvolution, drug response signatures (>1,200 drugs) | 7.0 GB | [Zenodo](https://zenodo.org/records/14247036) |
+| Zenodo 4739739 | Zenodo | ⚠️ Mixed | 10x Visium | 6 tumors (4 TNBC) | ST + H&E | Spatial matrices, annotated histology, pathologist annotations | 920 MB | [Zenodo](https://zenodo.org/records/4739739) |
+| Zenodo 3957257 | Zenodo | ❌ No (HER2+) | 10x Visium | HER2+ tumors | ST + H&E | Processed counts, pathology images, spatial deconvolution | 629.6 MB | [Zenodo](https://zenodo.org/records/3957257) |
+| Human Breast Cell Atlas | CellxGene | ⚠️ Mixed | scRNA-seq + ST | 126 women, 714K cells | scRNA-seq + ST + CODEX + smFISH | Cell-type annotations, spatial maps, reference atlas | Variable | [CellxGene](https://cellxgene.cziscience.com/collections/48259aa8-f168-4bf5-b797-af8e88da6637) |
+| Mendeley gb83sywsjc | Mendeley | ⚠️ Mixed | Mass Cytometry | 194 samples (144 tumor) | CyTOF + IF | Immune ecosystem profiling, 73 proteins, 26M cells | Variable | [Mendeley](https://data.mendeley.com/datasets/gb83sywsjc/1) |
+| HEST-1k | Hugging Face | ⚠️ Mixed | Multiple ST | 1,255 slides, 367 cancer samples | ST + WSI | Histology-expression pairs, 76M nuclei, multi-organ | >100B | [HuggingFace](https://huggingface.co/datasets/MahmoodLab/hest) |
+
+**Legend:**
+- ✅ **Yes** - Dataset exclusively or primarily contains TNBC samples
+- ⚠️ **Partial/Mixed** - Dataset contains some TNBC samples along with other subtypes
+- ❌ **No** - Dataset does not contain TNBC, but useful as reference (HER2+, normal tissue, etc.)
+
+### Data Types Available
+
+- ✅ Raw count matrices
+- ✅ Processed/normalized counts
+- ✅ H&E whole slide images
+- ✅ Pathological annotations
+- ✅ Clinical metadata
+- ✅ Spot coordinates/positions
+- ✅ Scalefactors for alignment
+- ✅ Analysis code/pipelines
+- ✅ Deconvolution results
+- ✅ Clustering information
+
+---
+
 ## TNBC-Specific Datasets
 
 ### 1. USC TNBC Cohort (GSE210616)
@@ -180,9 +221,93 @@ This repository catalogs publicly available spatial transcriptomics datasets foc
 
 ---
 
+### 5. Andersson et al. HER2+ Dataset (Zenodo: 3957257)
+
+**Study:** Spatial Deconvolution of HER2-positive Breast Tumors Reveals Novel Intercellular Relationships  
+**Published:** 2020  
+**Platform:** 10x Visium  
+**Institution:** Royal Institute of Technology (KTH) and Science for Life Laboratory  
+**Samples:** HER2+ breast tumors (NOT TNBC)
+
+**Relevance to TNBC Research:**
+- **Comparative reference** for HER2+ vs TNBC spatial differences
+- Methodology applicable to TNBC analysis
+- Spatial deconvolution approach
+
+**Key Features:**
+- Processed count matrices
+- H&E images (plain and annotated)
+- Pathologist annotations
+- Spot selection files for visualization
+
+**Access:**
+- **Zenodo:** [10.5281/zenodo.3957257](https://zenodo.org/records/3957257)
+- **Publication:** [DOI: 10.1101/2020.07.14.200600](https://doi.org/10.1101/2020.07.14.200600)
+- **Data Type:** Count matrices, H&E images, annotations, spot coordinates
+- **Size:** 629.6 MB
+
+**Data Contents:**
+```
+├── count-matrices.zip      # Processed counts [spots × genes]
+├── images.zip             # H&E and annotated images
+├── spot-selection.zip     # Array to pixel coordinate mapping
+└── meta.zip              # Spot labels and annotations
+```
+
+**Annotation Categories:**
+- Breast glands
+- Connective tissue
+- Immune infiltrates
+- Tumor regions
+
+**Note:** This dataset is HER2+, not TNBC. Included as a valuable reference for comparative studies and methodological approaches applicable to TNBC.
+
+---
+
+### 6. Wagner et al. Mass Cytometry Atlas (Mendeley: gb83sywsjc)
+
+**Study:** A single-cell atlas of the tumor and immune ecosystem of human breast cancer  
+**Published:** Cell, 2019  
+**Platform:** Mass Cytometry (CyTOF)  
+**Institution:** University of Zurich  
+**Samples:** 194 samples (144 tumor, 50 non-tumor)
+- Includes ER+, HER2+, and TNBC samples
+
+**Relevance to TNBC Research:**
+- **Immune ecosystem profiling** at single-cell protein level
+- Complements spatial transcriptomics with protein data
+- Identifies immunosuppressive features in TNBC
+
+**Key Features:**
+- 73 proteins measured per cell
+- 26 million cells analyzed
+- Tumor and immune cell-centric panels
+- PD-L1+ macrophage characterization
+- Exhausted T cell populations
+
+**Access:**
+- **Mendeley Data:** [10.17632/gb83sywsjc.1](https://data.mendeley.com/datasets/gb83sywsjc/1)
+- **Publication:** [Wagner et al., Cell 2019](https://doi.org/10.1016/j.cell.2019.01.003)
+- **License:** CC BY 4.0
+- **Data Type:** CyTOF data, flow cytometry analysis
+
+**Key Findings (relevant to TNBC):**
+- High frequencies of PD-L1+ tumor-associated macrophages in high-grade ER+ and ER- tumors
+- Exhausted T cell populations in TNBC
+- Ecosystem-based classification for precision medicine
+- Tumor cell phenotypic heterogeneity
+
+**Technologies:**
+- Mass cytometry (CyTOF) for protein quantification
+- Imaging mass cytometry (IMC) for spatial protein distribution
+
+**Note:** While not spatial transcriptomics, this dataset provides essential protein-level immune profiling that complements ST data. Particularly valuable for validating immune populations identified in TNBC spatial studies.
+
+---
+
 ## Reference Datasets
 
-### 5. Human Breast Cell Atlas (CZI/CellxGene)
+### 7. Human Breast Cell Atlas (CZI/CellxGene)
 
 **Study:** A spatially resolved single cell genomic atlas of the adult human breast  
 **Published:** Nature, 2024  
@@ -220,7 +345,7 @@ This repository catalogs publicly available spatial transcriptomics datasets foc
 
 ## Large-Scale Multi-Organ Collections
 
-### 6. HEST-1k (Hugging Face)
+### 8. HEST-1k (Hugging Face)
 
 **Study:** Histology-based Expression Spatial Transcriptomics  
 **Published:** 2024  
@@ -252,36 +377,7 @@ This repository catalogs publicly available spatial transcriptomics datasets foc
 **Data Organization:**
 - ST profiles from 131 public and internal cohorts
 - Unified format with aligned WSI
-- Expression/morphology pair annotations
-- Nuclei segmentation masks
 
----
-
-## Data Access
-
-### Quick Reference Table
-
-| Dataset | TNBC Samples | Total Samples | Platform | Size | Access |
-|---------|--------------|---------------|----------|------|--------|
-| GSE210616 | 22 patients (43 sections) | 22 | Visium | 35.1 GB | [GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE210616) |
-| Zenodo 14204217 | Multiple patients | Multiple | Custom ST | 58.0 GB | [Zenodo](https://zenodo.org/records/14204217) |
-| Zenodo 14247036 | 4 samples | 9 | Visium | 7.0 GB | [Zenodo](https://zenodo.org/records/14247036) |
-| Zenodo 4739739 | 4 samples | 6 | Visium | 920 MB | [Zenodo](https://zenodo.org/records/4739739) |
-| HBCA | 0 (normal tissue) | 126 women | Multi-modal | Variable | [CellxGene](https://cellxgene.cziscience.com/collections/48259aa8-f168-4bf5-b797-af8e88da6637) |
-| HEST-1k | Subset | 1,255 profiles | Multi-platform | >100B | [Hugging Face](https://huggingface.co/datasets/MahmoodLab/hest) |
-
-### Data Types Available
-
-- ✅ Raw count matrices
-- ✅ Processed/normalized counts
-- ✅ H&E whole slide images
-- ✅ Pathological annotations
-- ✅ Clinical metadata
-- ✅ Spot coordinates/positions
-- ✅ Scalefactors for alignment
-- ✅ Analysis code/pipelines
-- ✅ Deconvolution results
-- ✅ Clustering information
 
 ### Download Instructions
 
@@ -301,10 +397,19 @@ gse <- getGEO("GSE210616")
 wget https://zenodo.org/records/14204217/files-archive  # Belgian TNBC
 wget https://zenodo.org/records/14247036/files-archive  # CNIO Drug Response
 wget https://zenodo.org/records/4739739/files-archive   # Wu et al.
+wget https://zenodo.org/records/3957257/files-archive   # HER2+ Reference
 
 # Or use zenodo_get Python package
 pip install zenodo_get
 zenodo_get 10.5281/zenodo.14204217
+```
+
+#### Mendeley Dataset (Mass Cytometry)
+```bash
+# Mendeley requires browser download
+# 1. Visit: https://data.mendeley.com/datasets/gb83sywsjc/1
+# 2. Click "Download All"
+# 3. Extract downloaded files
 ```
 
 #### HEST Dataset (Hugging Face)
@@ -367,6 +472,34 @@ If you use these datasets in your research, please cite the original publication
   pages={1334--1347},
   year={2021},
   doi={10.1038/s41588-021-00911-1}
+}
+```
+
+### Andersson et al. HER2+ (Zenodo 3957257)
+```bibtex
+@article{andersson2021spatial,
+  title={Spatial deconvolution of HER2-positive breast tumors reveals novel intercellular relationships},
+  author={Andersson, Alma and Larsson, Ludvig and Stenbeck, Linnea and others},
+  journal={Genome Biology},
+  volume={22},
+  number={1},
+  pages={1--27},
+  year={2021},
+  doi={10.1186/s13059-021-02271-1}
+}
+```
+
+### Wagner et al. Mass Cytometry (Mendeley gb83sywsjc)
+```bibtex
+@article{wagner2019single,
+  title={A single-cell atlas of the tumor and immune ecosystem of human breast cancer},
+  author={Wagner, Johanna and Rapsomaniki, Maria A and Chevrier, Stéphane and others},
+  journal={Cell},
+  volume={177},
+  number={5},
+  pages={1330--1345},
+  year={2019},
+  doi={10.1016/j.cell.2019.01.003}
 }
 ```
 
