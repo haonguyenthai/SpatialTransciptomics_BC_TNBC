@@ -23,7 +23,7 @@ DATASETS = {
     "wu": {
         "name": "Wu et al. (Zenodo 4739739)",
         "size_gb": 0.9,
-        "tnbc_samples": 4,
+        "tnbc_samples": "4/6 samples",
         "files": {
             "filtered_matrices": "https://zenodo.org/records/4739739/files/filtered_count_matrices.tar.gz",
             "spatial": "https://zenodo.org/records/4739739/files/spatial.tar.gz",
@@ -34,7 +34,7 @@ DATASETS = {
     "cnio": {
         "name": "CNIO Drug Response (Zenodo 14247036)",
         "size_gb": 7.0,
-        "tnbc_samples": 4,
+        "tnbc_samples": "4/9 samples",
         "files": {
             "all_data": "https://zenodo.org/records/14247036/files/Breast-bcSpatial.zip"
         }
@@ -42,7 +42,7 @@ DATASETS = {
     "belgian": {
         "name": "Belgian TNBC Atlas (Zenodo 14204217)",
         "size_gb": 58.0,
-        "tnbc_samples": "Multiple",
+        "tnbc_samples": "Multiple TNBC",
         "note": "Large dataset - ensure sufficient storage",
         "files": {
             "clinical": "https://zenodo.org/records/14204217/files/Clinical.tar",
@@ -54,10 +54,22 @@ DATASETS = {
             "deconvolution": "https://zenodo.org/records/14204217/files/deconvolution.tar"
         }
     },
+    "her2": {
+        "name": "Andersson et al. HER2+ (Zenodo 3957257)",
+        "size_gb": 0.63,
+        "tnbc_samples": "0 (HER2+ reference)",
+        "note": "HER2+ dataset - useful for comparative analysis",
+        "files": {
+            "count_matrices": "https://zenodo.org/records/3957257/files/count-matrices.zip",
+            "images": "https://zenodo.org/records/3957257/files/images.zip",
+            "metadata": "https://zenodo.org/records/3957257/files/meta.zip",
+            "spot_selections": "https://zenodo.org/records/3957257/files/spot-selections.zip"
+        }
+    },
     "gse210616": {
         "name": "USC TNBC Cohort (GEO GSE210616)",
         "size_gb": 35.0,
-        "tnbc_samples": 22,
+        "tnbc_samples": "22 patients",
         "note": "Requires GEO FTP access",
         "method": "geo"
     }
