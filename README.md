@@ -40,7 +40,7 @@ This repository catalogs publicly available spatial transcriptomics datasets foc
 | Zenodo 4739739 | Zenodo |  Mixed | 10x Visium | 6 tumors (4 TNBC) | ST + H&E | Spatial matrices, annotated histology, pathologist annotations | 920 MB | [Zenodo](https://zenodo.org/records/4739739) |
 | Zenodo 3957257 | Zenodo | HER2+ | 10x Visium | HER2+ tumors | ST + H&E | Processed counts, pathology images, spatial deconvolution | 629.6 MB | [Zenodo](https://zenodo.org/records/3957257) |
 | Human Breast Cell Atlas | CellxGene |  Mixed | scRNA-seq + ST | 126 women, 714K cells | scRNA-seq + ST + CODEX + smFISH | Cell-type annotations, spatial maps, reference atlas | Variable | [CellxGene](https://cellxgene.cziscience.com/collections/48259aa8-f168-4bf5-b797-af8e88da6637) |
-| Mendeley gb83sywsjc | Mendeley |  Mixed | Mass Cytometry | 194 samples (144 tumor) | CyTOF + IF | Immune ecosystem profiling, 73 proteins, 26M cells | Variable | [Mendeley](https://data.mendeley.com/datasets/gb83sywsjc/1) |
+| Mendeley Wagner et al | Mendeley |  Mixed | Mass Cytometry | 194 samples (144 tumor) | CyTOF + IF | Immune ecosystem profiling, 73 proteins, 26M cells | Variable | [Mendeley](https://data.mendeley.com/datasets/gb83sywsjc/1) |
 | HEST-1k | Hugging Face |  Mixed | Multiple ST | 1,255 slides, 367 cancer samples | ST + WSI | Histology-expression pairs, 76M nuclei, multi-organ | >100B | [HuggingFace](https://huggingface.co/datasets/MahmoodLab/hest) |
 
 **Legend:**
