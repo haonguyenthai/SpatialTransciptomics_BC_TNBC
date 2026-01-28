@@ -35,7 +35,7 @@ This repository catalogs publicly available spatial transcriptomics datasets foc
 | Dataset | Source | TNBC | Technology | Samples / Scale | Modalities | Key Contents | Size | Link |
 |---------|--------|------|------------|----------------|------------|--------------|------|------|
 | GSE210616 | GEO |  Yes | 10x Visium | 43 sections, 22 patients | ST + H&E | Raw & processed matrices, spatial coords, H&E images, Loupe files | 35.1 GB | [GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE210616) |
-| Zenodo 14204217 | Zenodo | Yes | 10x Visium | Multiple TNBC samples | ST + H&E + IHC | Raw counts, clustering, deconvolution, clinical metadata, 18 annotation types | 58.0 GB | [Zenodo](https://zenodo.org/records/14204217) |
+| Zenodo 14204217 | Zenodo | Yes | 10x Visium | 94 | ST + H&E + IHC | Raw counts, clustering, deconvolution, clinical metadata, 18 annotation types | 58.0 GB | [Zenodo](https://zenodo.org/records/14204217) |
 | Zenodo 14247036 | Zenodo |  Partial | 10x Visium | 9 tumors (4 TNBC) | ST + scRNA-seq | Seurat objects, deconvolution, drug response signatures (>1,200 drugs) | 7.0 GB | [Zenodo](https://zenodo.org/records/14247036) |
 | Zenodo 4739739 | Zenodo |  Mixed | 10x Visium | 6 tumors (4 TNBC) | ST + H&E | Spatial matrices, annotated histology, pathologist annotations | 920 MB | [Zenodo](https://zenodo.org/records/4739739) |
 | Zenodo 3957257 | Zenodo | HER2+ | 10x Visium | HER2+ tumors | ST + H&E | Processed counts, pathology images, spatial deconvolution | 629.6 MB | [Zenodo](https://zenodo.org/records/3957257) |
