@@ -4,20 +4,21 @@ Detailed comparison of TNBC spatial transcriptomics datasets to help researchers
 
 ## Overview Table
 
-| Feature | GSE210616 | Zenodo 14204217 | Zenodo 14247036 | Zenodo 4739739 | HEST-1k |
-|---------|-----------|-----------------|-----------------|----------------|---------|
-| **TNBC Samples** | 22 patients | Multiple | 4 samples | 4 samples | Subset available |
-| **Total Samples** | 43 sections | Multiple | 9 | 6 | 367 cancer samples |
-| **Platform** | Visium | Custom ST | Visium | Visium | Multi-platform |
-| **Year** | 2022 | 2024 | 2024 | 2021 | 2024 |
-| **Institution** | USC | ULB Brussels | CNIO Spain | Garvan AU | Harvard |
-| **Size** | 35 GB | 58 GB | 7 GB | 920 MB | >100B |
-| **Raw Data** | ❌ | ✅ | ✅ | ✅ | ✅ |
-| **H&E Images** | ✅ | ✅ | ✅ | ✅ | ✅ (WSI) |
-| **Annotations** | Basic | Extensive (18 types) | Moderate | Pathologist | Variable |
-| **Clinical Data** | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Code Available** | ❌ | ✅ | ✅ | ❌ | ✅ |
-| **scRNA-seq Match** | ❌ | ❌ | ✅ | ✅ (SCP1039) | Variable |
+| Feature | GSE210616 | Zenodo 14204217 | Zenodo 14247036 | Zenodo 4739739 | Zenodo 3957257 | Mendeley gb83sywsjc | HEST-1k |
+|---------|-----------|-----------------|-----------------|----------------|----------------|---------------------|---------|
+| **TNBC Content** | ✅ Pure | ✅ Pure | ⚠️ 44% (4/9) | ⚠️ 67% (4/6) | ❌ HER2+ | ⚠️ Mixed | ⚠️ Subset |
+| **Total Samples** | 43 sections | Multiple | 9 | 6 | Multiple | 194 | 1,255 |
+| **Platform** | Visium | Visium | Visium | Visium | Visium | CyTOF | Multi |
+| **Year** | 2022 | 2024 | 2024 | 2021 | 2020 | 2019 | 2024 |
+| **Institution** | USC | ULB Brussels | CNIO Spain | Garvan AU | KTH Sweden | U. Zurich | Harvard |
+| **Size** | 35 GB | 58 GB | 7 GB | 920 MB | 630 MB | Variable | >100B |
+| **Raw Data** | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **H&E Images** | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ (WSI) |
+| **Annotations** | Basic | Extensive (18) | Moderate | Pathologist | Pathologist | N/A | Variable |
+| **Clinical Data** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Code Available** | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ |
+| **scRNA-seq Match** | ❌ | ❌ | ✅ | ✅ (SCP1039) | ❌ | N/A | Variable |
+| **Protein Data** | ❌ | ❌ | ❌ | ✅ (CITE-seq) | ❌ | ✅ (CyTOF) | ❌ |
 
 ## Detailed Comparisons
 
@@ -63,6 +64,27 @@ Detailed comparison of TNBC spatial transcriptomics datasets to help researchers
   - Immune landscape characterization
 - **Limitations:** Smaller dataset (6 total samples)
 
+#### Zenodo 3957257 (Andersson et al. HER2+)
+- **Unique Feature:** HER2+ reference for comparative studies
+- **Clinical Annotations:** Moderate
+- **Best For:** Comparative analysis (HER2+ vs TNBC), methodology validation
+- **Includes:**
+  - Processed count matrices
+  - Pathologist annotations (breast glands, connective tissue, immune)
+  - Spot-to-pixel coordinate mapping
+- **Limitations:** NOT TNBC (HER2+ only), smaller size
+
+#### Mendeley gb83sywsjc (Wagner et al. CyTOF)
+- **Unique Feature:** Protein-level immune profiling across breast cancer subtypes
+- **Clinical Annotations:** Comprehensive (194 samples)
+- **Best For:** Immune ecosystem characterization, protein validation of ST findings
+- **Includes:**
+  - 73 proteins measured per cell
+  - 26 million cells analyzed
+  - PD-L1+ macrophage populations
+  - Exhausted T cell characterization
+- **Limitations:** Not spatial transcriptomics (CyTOF), requires specialized analysis tools
+
 #### HEST-1k (Multi-organ Atlas)
 - **Unique Feature:** Largest collection, WSI quality, multi-cancer
 - **Clinical Annotations:** Variable across cohorts
@@ -78,44 +100,52 @@ Detailed comparison of TNBC spatial transcriptomics datasets to help researchers
 
 ### 2. Spatial Resolution Comparison
 
-| Dataset | Technology | Spot Size | Resolution | Genes Detected |
-|---------|-----------|-----------|------------|----------------|
-| GSE210616 | Visium | 55 µm | ~1-10 cells/spot | ~18K |
-| Zenodo 14204217 | Custom ST | ~100 µm | ~10-30 cells/spot | Variable |
-| Zenodo 14247036 | Visium | 55 µm | ~1-10 cells/spot | ~18K |
-| Zenodo 4739739 | Visium | 55 µm | ~1-10 cells/spot | ~18K |
-| HEST-1k | Multiple | Variable | Variable | Variable |
+| Dataset | Technology | Spot Size | Resolution | Genes Detected | Cells Profiled |
+|---------|-----------|-----------|------------|----------------|----------------|
+| GSE210616 | Visium | 55 µm | ~1-10 cells/spot | ~18K | N/A |
+| Zenodo 14204217 | Visium | 55 µm | ~1-10 cells/spot | ~18K | N/A |
+| Zenodo 14247036 | Visium | 55 µm | ~1-10 cells/spot | ~18K | Matched scRNA |
+| Zenodo 4739739 | Visium | 55 µm | ~1-10 cells/spot | ~18K | Matched scRNA |
+| Zenodo 3957257 | Visium | 55 µm | ~1-10 cells/spot | ~18K | N/A |
+| Mendeley gb83sywsjc | CyTOF | Single cell | Single cell | 73 proteins | 26M cells |
+| HEST-1k | Multiple | Variable | Variable | Variable | Variable |
 
 ---
 
 ### 3. Available Data Types
 
 #### Raw Data
-| Dataset | Raw Counts | Filtered Counts | Normalized | Deconvolved |
-|---------|-----------|----------------|------------|-------------|
-| GSE210616 | ❌ | ✅ | ❌ | ❌ |
-| Zenodo 14204217 | ✅ | ✅ | ✅ (batch-corrected) | ✅ |
-| Zenodo 14247036 | ✅ | ✅ | ✅ (SCTransform) | ✅ |
-| Zenodo 4739739 | ✅ | ✅ | ❌ | ❌ |
-| HEST-1k | ✅ | ✅ | Variable | Variable |
+| Dataset | Raw Counts | Filtered Counts | Normalized | Deconvolved | Protein Data |
+|---------|-----------|----------------|------------|-------------|--------------|
+| GSE210616 | ❌ | ✅ | ❌ | ❌ | ❌ |
+| Zenodo 14204217 | ✅ | ✅ | ✅ (batch-corrected) | ✅ | ❌ |
+| Zenodo 14247036 | ✅ | ✅ | ✅ (SCTransform) | ✅ | ❌ |
+| Zenodo 4739739 | ✅ | ✅ | ❌ | ❌ | ✅ (CITE-seq) |
+| Zenodo 3957257 | ✅ | ✅ | ✅ | ✅ | ❌ |
+| Mendeley gb83sywsjc | N/A | N/A | N/A | N/A | ✅ (CyTOF) |
+| HEST-1k | ✅ | ✅ | Variable | Variable | ❌ |
 
 #### Image Data
-| Dataset | H&E | Annotations | IHC | WSI | Image Format |
-|---------|-----|-------------|-----|-----|--------------|
-| GSE210616 | ✅ | Basic | ❌ | ❌ | JPG, PNG |
-| Zenodo 14204217 | ✅ | Detailed (18 types) | ✅ (CD3/CD20) | ✅ | NDPI, JPG, PNG |
-| Zenodo 14247036 | ✅ | Moderate | ❌ | ❌ | Standard |
-| Zenodo 4739739 | ✅ | Pathologist | ❌ | ❌ | PDF |
-| HEST-1k | ✅ | Variable | ❌ | ✅ | High-res |
+| Dataset | H&E | Annotations | IHC | WSI | Image Format | Protein Imaging |
+|---------|-----|-------------|-----|-----|--------------|-----------------|
+| GSE210616 | ✅ | Basic | ❌ | ❌ | JPG, PNG | ❌ |
+| Zenodo 14204217 | ✅ | Detailed (18 types) | ✅ (CD3/CD20) | ✅ | NDPI, JPG, PNG | ❌ |
+| Zenodo 14247036 | ✅ | Moderate | ❌ | ❌ | Standard | ❌ |
+| Zenodo 4739739 | ✅ | Pathologist | ❌ | ❌ | PDF | ❌ |
+| Zenodo 3957257 | ✅ | Pathologist | ❌ | ❌ | JPG, PNG | ❌ |
+| Mendeley gb83sywsjc | ❌ | N/A | ✅ | ❌ | N/A | ✅ (IMC) |
+| HEST-1k | ✅ | Variable | ❌ | ✅ | High-res | ❌ |
 
 #### Metadata
-| Dataset | Clinical | Survival | Treatment | Demographics | Batch Info |
-|---------|----------|----------|-----------|--------------|-----------|
-| GSE210616 | ✅ | ❌ | ❌ | ✅ (Race) | ✅ |
-| Zenodo 14204217 | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Zenodo 14247036 | ✅ | ❌ | ❌ | ✅ | ✅ |
-| Zenodo 4739739 | ✅ | ❌ | ❌ | ✅ | ✅ |
-| HEST-1k | ✅ | Variable | Variable | Variable | ✅ |
+| Dataset | Clinical | Survival | Treatment | Demographics | Batch Info | Immune Profiling |
+|---------|----------|----------|-----------|--------------|-----------|------------------|
+| GSE210616 | ✅ | ❌ | ❌ | ✅ (Race) | ✅ | ❌ |
+| Zenodo 14204217 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Zenodo 14247036 | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ |
+| Zenodo 4739739 | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ |
+| Zenodo 3957257 | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ |
+| Mendeley gb83sywsjc | ✅ | ✅ | ❌ | ✅ | ✅ | ✅✅ |
+| HEST-1k | ✅ | Variable | Variable | Variable | ✅ | Variable |
 
 ---
 
@@ -149,13 +179,17 @@ Detailed comparison of TNBC spatial transcriptomics datasets to help researchers
 | **Racial disparities in TNBC** | GSE210616 | Only dataset with AA/Caucasian comparison |
 | **Tumor microenvironment heterogeneity** | Zenodo 14204217 | Extensive annotations, clustering |
 | **Drug response prediction** | Zenodo 14247036 | Beyondcell analysis, >1,200 drugs |
-| **Immune landscape** | Wu et al. (4739739) | Detailed immune phenotyping, ecotypes |
+| **Immune landscape** | Wu et al. (4739739) + Mendeley CyTOF | ST + protein-level immune profiling |
 | **TLS identification** | Zenodo 14204217 | Dedicated TLS analysis pipeline |
 | **Foundation model training** | HEST-1k | Large-scale, diverse, standardized |
 | **Clonal heterogeneity** | Zenodo 14247036 | SCEVAN clonal composition |
 | **Spatial niches** | Wu et al. (4739739) | Ecotype analysis, niche characterization |
 | **Cross-cancer comparison** | HEST-1k | Multi-cancer, standardized |
 | **Method development** | Zenodo 14204217 | Multiple analysis pipelines, benchmarking |
+| **HER2+ vs TNBC comparison** | Zenodo 3957257 + TNBC datasets | Matched platform for subtype comparison |
+| **Protein-level validation** | Mendeley gb83sywsjc | CyTOF protein quantification, 73 markers |
+| **Immune exhaustion** | Wu et al. + Mendeley CyTOF | T cell profiling across modalities |
+| **Macrophage populations** | Mendeley gb83sywsjc | PD-L1+ TAMs, M1/M2 characterization |
 
 ---
 
